@@ -33,13 +33,15 @@ window.onload = async () => {
   if (attr.includes(data.app_key) === true) {
     const desc = document.createElement('meta')
     const keywords = document.createElement('meta')
-    const title = document.createElement('title')
+    const title = document.createElement('meta')
     const head = document.querySelector('head')
-    title.innerText = jsonData.project.meta_title
+    // title.innerText = jsonData.project.meta_title
     keywords.setAttribute('name', 'keywords')
     keywords.setAttribute('content', jsonData.project.meta_keywords)
     desc.setAttribute('name', 'description')
     desc.setAttribute('content', jsonData.project.meta_description)
+    title.setAttribute('name', 'title')
+    title.setAttribute('content', jsonData.project.meta_title);
     head.appendChild(desc)
     head.appendChild(keywords)
     head.appendChild(title)
