@@ -7,7 +7,7 @@ window.onload = async () => {
   const attr = scr.getAttribute('src')
   const data = {
     app_key: attr.split('?')[1],
-    domain: attr.split('-').pop()
+    domain: document.location.hostname
   }
 
   console.log(data)
