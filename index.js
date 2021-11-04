@@ -1,13 +1,15 @@
 const baseUrl = 'https://api-seo.cloudhost.cm'
 
-const apifetch = `${baseUrl}/api/seo/get-project`
+const apifetch = `${baseUrl}/api/seo/get-page-infos`
+
 
 window.onload = async () => {
   const scr = document.querySelector('script[id="seo-plugin"]')
   const attr = scr.getAttribute('src')
   const data = {
     app_key: attr.split('?')[1],
-    domain: document.location.hostname
+    domain: 'music.com',
+    page_url: '/Home'
   }
 
   console.log(data)
@@ -20,16 +22,15 @@ window.onload = async () => {
       'Content-Type': 'application/json'
     }
   }
-  console.log(req)
+ 
   try {
     let get_project = await fetch(apifetch, req)
     jsonData = await get_project.json()
+    console.log(jsonData.project)
   } catch (error) {
     console.log(req.message)
   }
 
-  console.log(jsonData)
-  
   if (attr.includes(data.app_key) === true) {
     const desc = document.createElement('meta')
     const keywords = document.createElement('meta')
@@ -49,5 +50,7 @@ window.onload = async () => {
     console.log('Verify key again')
   }
 }
+
+
 
 
