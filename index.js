@@ -6,9 +6,13 @@ const apifetch = `${baseUrl}/api/seo/get-page-infos`
 window.onload = async () => {
   const scr = document.querySelector('script[id="seo-plugin"]')
   const attr = scr.getAttribute('src')
+  //const path = window.location.pathname;
+  //const pageName = path.split("/").pop()
   const data = {
     app_key: attr.split('?')[1],
+    //domain: window.location.hostname,
     domain: 'music.com',
+    //page_url: pageName 
     page_url: '/Home'
   }
 
